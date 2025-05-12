@@ -68,7 +68,7 @@ Example configuration (Claude Desktop):
       "command": "/path/to/npx",
       "args": [
         "-y",
-        "github:OwnID/mcp-remote#v2",
+        "@ownid/mcp-remote@next",
         "https://abc.server.ownid.ai/mcp/ai"
       ]
     }

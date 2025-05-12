@@ -9,7 +9,7 @@ const chalk = require('chalk');
 const { execSync } = require('child_process');
 const packageJson = require('../package.json');
 
-const NPX_TOOL_NAME = 'github:OwnID/mcp-remote#v2';
+const NPX_TOOL_NAME = '@ownid/mcp-remote@next';
 
 function getNpxPath() {
   try {
