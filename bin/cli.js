@@ -156,13 +156,17 @@ function main() {
   }
 
   const npxPath = getNpxPath();
-  
-  config.mcpServers[serverName] = {
-    command: npxPath,
-    args: ['-y', NPX_TOOL_NAME, serverUrl]
-  };
 
   try {
+    console.log(chalk.blue(`Verifying connection to server...`));
+    const verificationCmd = `${npxPath} -y -p ${NPX_TOOL_NAME} mcp-remote-client ${serverUrl} --init`;
+    execSync(verificationCmd, { stdio: 'inherit' });
+    
+    config.mcpServers[serverName] = {
+      command: npxPath,
+      args: ['-y', NPX_TOOL_NAME, serverUrl]
+    };
+    
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
     console.log(chalk.green(`\nSuccessfully added MCP server "${serverName}" to ${installTarget}!`));
     console.log(chalk.green(`Configuration saved to: ${configPath}`));
@@ -171,7 +175,7 @@ function main() {
     console.log(chalk.blue(`  URL: ${serverUrl}`));
     console.log(chalk.blue(`\nRestart ${installTarget} to apply changes.`));
   } catch (error) {
-    console.log(chalk.red(`Error writing config: ${error.message}`));
+    console.log(chalk.red(`Error: Server verification failed. Configuration not updated.`));
     process.exit(1);
   }
 }
