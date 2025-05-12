@@ -22,6 +22,16 @@ npx @ownid/claude-desktop-installer luminok http://localhost:4001/cm9fkjx5e0001m
 
 This will add a server named "luminok" to your Claude Desktop configuration.
 
+### Install to User or System-wide
+
+```bash
+# Install for current user only (default)
+npx @ownid/claude-desktop-installer luminok http://localhost:4001/cm9fkjx5e0001ma0q76oaar0c/sse
+
+# Install system-wide (requires admin privileges)
+npx @ownid/claude-desktop-installer luminok http://localhost:4001/cm9fkjx5e0001ma0q76oaar0c/sse --target=system
+```
+
 ### Global Installation:
 
 ```bash
@@ -34,14 +44,20 @@ claude-desktop-installer <server-name> <server-url>
 ```
 --help, -h     Display usage information
 --version, -v  Display version information
+--target       Installation target: "user" (default) or "system"
 ```
 
 ## How it works
 
-The installer updates the Claude Desktop configuration file with a new MCP server entry in the following format:
+The installer updates the Claude Desktop configuration file with a new MCP server entry:
 
-- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+- User installation (default):
+  - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+  - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+- System-wide installation:
+  - macOS: `/Library/Application Support/Claude/claude_desktop_config.json`
+  - Windows: `%PROGRAMDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
