@@ -159,7 +159,7 @@ function main() {
   
   config.mcpServers[serverName] = {
     command: npxPath,
-    args: ['-y', `"${NPX_TOOL_NAME}"`, `"${serverUrl}"`]
+    args: ['-y', NPX_TOOL_NAME, serverUrl]
   };
 
   try {
