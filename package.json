@@ -1,0 +1,43 @@
+{
+  "name": "@ownid/mcp-desktop-installer",
+  "version": "0.1.0",
+  "description": "Add MCP servers to Desktop AI agents",
+  "author": "OwnID",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ownid/mcp-desktop-installer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ownid/mcp-desktop-installer/issues"
+  },
+  "homepage": "https://github.com/ownid/mcp-desktop-installer",
+  "main": "bin/cli.js",
+  "bin": {
+    "mcp-desktop-installer": "./bin/cli.js"
+  },
+  "scripts": {
+  },
+  "keywords": [
+    "claude",
+    "cursor",
+    "desktop",
+    "mcp",
+    "sse",
+    "installer",
+    "anthropic",
+    "ai",
+    "config"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "os-homedir": "^2.0.0"
+  },
+  "packageManager": "yarn@1.22.22",
+  "publishConfig": {
+    "access": "public"
+  }
+}
